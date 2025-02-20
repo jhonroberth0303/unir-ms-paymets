@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "d902dc56-3151-4502-9a01-8f7137bd0c3a",
+		"name": "RelatosdePapel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26435093"
+	},
+	"item": [
+		{
+			"name": "Create payments",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"products\": 12,\r\n        \"orderId\": \"ORD002\",\r\n        \"userId\": 101,\r\n        \"quantity\": 1,\r\n        \"orderDate\": \"2025-02-03\",\r\n        \"deliveryStatus\": \"PENDING\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apigateway}}api/ms-books-payments/payments",
+					"host": [
+						"{{apigateway}}api"
+					],
+					"path": [
+						"ms-books-payments",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener payments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apigateway}}api/ms-books-payments/payments",
+					"host": [
+						"{{apigateway}}api"
+					],
+					"path": [
+						"ms-books-payments",
+						"payments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener payment",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"products\": [1, 3],\r\n  \"orderId\": \"ORD12345\",\r\n  \"userId\": 42,\r\n  \"quantity\": 3,\r\n  \"orderDate\": \"2025-01-26\",\r\n  \"deliveryStatus\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{apigateway}}api/ms-books-payments/payments/ORD001",
+					"host": [
+						"{{apigateway}}api"
+					],
+					"path": [
+						"ms-books-payments",
+						"payments",
+						"ORD001"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar payment",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{apigateway}}api/ms-books-payments/payments/ORD001",
+					"host": [
+						"{{apigateway}}api"
+					],
+					"path": [
+						"ms-books-payments",
+						"payments",
+						"ORD001"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
